@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toboolist</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- HEADER -->
+        <header class="header">
+
+                <img id="logo" src="img/Logo.png" alt="Logo">
+
+                <h1>Toboolist</h1>
+            
+        </header>
+        <!-- END HEADER -->
+
+        <!-- MAIN -->
+        <main>
+
+            <div class="container-bottoni new-todo">
+                <p class="error titolo" v-show="error">Errore! Riempi!</p>
+                <input class="titolo" type="text" placeholder="Aggiungi un nuovo todo" v-model.trim="newTodo" @keyup.enter="addTodo"/>
+                <button class="bottone-task" @click="addTodo">Add Task</button>
+            </div>
+
+            <div class="corpo">
+                <h3 class="titolo">&#9660; New Task</h3>
+
+                <ul class="todo-list" v-if="todos.length > 0">                    
+                    <li v-for="(todo, index) in todos" class="obbiettivi flex">
+                        <p>{{ todo }}</p>
+                        <span class="simboli delete" @click="removeTodo(index)">&cross;</span>
+                    </li>
+                </ul>
+
+                <div class="empty-list" v-else>
+                    <h3 class="titolo">Hai finito le task! :)</h3>
+                </div>
+            </div>       
+            
+        </main>
+        <!-- END MAIN -->
+    </div>
+
+    <script src="js/scrpit.js"></script>
+</body>
+</html>
