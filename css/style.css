@@ -157,3 +157,7 @@ h1{
 .verdino{
     background-color: greenyellow;
 }
+
+.sbarra {
+    text-decoration: line-through;
+  }

@@ -26,8 +26,8 @@
         <main>
 
             <div class="container-bottoni new-todo">
-                <p class="error titolo" v-show="error">Errore! Riempi!</p>
-                <input class="titolo" type="text" placeholder="Aggiungi un nuovo todo" v-model.trim="newTodo" @keyup.enter="addTodo"/>
+                <p class="done titolo" v-show="done">Errore! Riempi!</p>
+                <input class="titolo" type="text" placeholder="Aggiungi un nuovo todo" v-model.trim="newTodo" @keyup.enter="addTodo">
                 <button class="bottone-task" @click="addTodo">Add Task</button>
             </div>
 
@@ -36,13 +36,13 @@
 
                 <ul class="todo-list" v-if="todos.length > 0">                    
                     <li v-for="(todo, index) in todos" class="obbiettivi flex">
-                        <p>{{ todo }}</p>
+                        <p class="{ 'sbarra': todo.done }">{{ todo.text }}</p>
                         <span class="simboli delete" @click="removeTodo(index)">&cross;</span>
                     </li>
                 </ul>
 
                 <div class="empty-list" v-else>
-                    <h3 class="titolo">Hai finito le task! :)</h3>
+                    <h3 class="titolo">Hai finito le task! :D</h3>
                 </div>
             </div>       
             

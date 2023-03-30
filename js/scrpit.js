@@ -3,25 +3,35 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            todos: ["Quarterly Newsletter", "Fare i compiti", "Fare la spesa", "Portare a spasso il cane"],
+            todos: [
+                {
+                    text:"Quarterly Newsletter",
+                    done: false
+                },
+                {
+                    text:"Fare i compiti",
+                    done: true
+                }
+            ],
             newTodo: "",
-            error: false
+            done: false
         };
     },
     methods: {
         addTodo() {
             if(this.newTodo.length > 0) {
-                this.error = false;
+                this.done = false;
 
                 this.newTodo = this.newTodo[0].toUpperCase() + this.newTodo.substring(1);
 
-                this.todos.unshift(this.newTodo);
+                this.todos.unshift(this.newTodo); 
+                
                 this.newTodo = "";
             } else {
-                this.error = true;
+                this.done = true;
 
                 setTimeout(() => {
-                    this.error = false;
+                    this.done = true;
                 }, 3000)
             }
         },
